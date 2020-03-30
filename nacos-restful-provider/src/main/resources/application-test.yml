@@ -1,0 +1,9 @@
+# 测试环境
+
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848   #服务发现中心地址
+        namespace: 16630107-942c-4bd4-81f3-f18cf81d66e4   #配置命名空间ID
+        cluster-name: DEFAULT    # 默认集群

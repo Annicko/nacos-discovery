@@ -1,0 +1,35 @@
+server:
+  port: 16010
+
+spring:
+  application:
+    name: nacos-restful-consumer #服务名
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848  #服务发现中心地址
+      config:
+        server-addr: 127.0.0.1:8848  #配置发现中心地址
+        file-extension: yaml    #指定配置文件的扩展名，配置文件名称根据application.name的名称加扩展名拼装，为nacos-restful-consumer.yaml
+        group: DEFAULT_GROUP            #通过 ext-config 可以配置多个扩展配置文件
+        ext-config[0]:
+           data-id: ext-config-common-one.yaml
+           group: COMMON_GROUP
+           refresh: true
+        ext-config[1]:
+           data-id: ext-config-common-two.yaml
+           group: COMMON_GROUP
+           refresh: true
+        ext-config[2]:
+           data-id: ext-config-http.yaml
+           group: COMMON_GROUP
+           refresh: true
+
+# 配置服务提供方的IP和地址
+provider:
+  address: 127.0.0.1:16005
+
+
+nacos-restful-provider:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule

@@ -1,0 +1,26 @@
+
+# 项目端口配置
+server:
+  port: 16005
+
+
+
+
+spring:
+  application:
+    name: nacos-restful-provider #服务名
+  profiles:
+    active: public  # 配置开发环境
+
+#spring:
+#  application:
+#    name: nacos-restful-provider #服务名
+#  profiles:
+#    active: test  # 配置测试环境
+
+
+#spring:
+#  application:
+#    name: nacos-restful-provider #服务名
+#  profiles:
+#    active: prod  # 配置生产环境
